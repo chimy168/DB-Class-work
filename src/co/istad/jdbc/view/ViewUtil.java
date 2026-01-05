@@ -13,10 +13,10 @@ public class ViewUtil {
         System.out.println("Welcome to JDBC System");
         System.out.println("--------------");
         System.out.println("""
-                1. List Articles
-                2. Add Article
-                3. Update Article
-                4. Delete Article
+                1. List Product
+                2. Add Product
+                3. Update Product
+                4. Delete Product
                 5. Exit
                 """);
     }
@@ -34,8 +34,8 @@ public class ViewUtil {
         table.addCell(items.getCode());
         table.addCell(items.getName());
         table.addCell(items.getPrice().toString());
-        table.addCell(String.valueOf(items.getQuantity()));
-        table.addCell(String.valueOf(items.getIsDeleted()));
+        table.addCell(String.valueOf(items.getQty()));
+        table.addCell(String.valueOf(items.getDeleted()));
 
         print(table.render(), true);
     }
@@ -56,8 +56,8 @@ public class ViewUtil {
             table.addCell(items.getCode());
             table.addCell(items.getName());
             table.addCell(items.getPrice().toString());
-            table.addCell(String.valueOf(items.getQuantity()));
-            table.addCell(String.valueOf(items.getIsDeleted()));
+            table.addCell(String.valueOf(items.getQty()));
+            table.addCell(String.valueOf(items.getDeleted()));
         }
 
         print(table.render(), true);
