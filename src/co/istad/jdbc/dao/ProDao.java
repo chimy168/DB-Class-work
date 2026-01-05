@@ -14,3 +14,5 @@ public interface ProDao {
         void save(Product product);
         void delete(Integer id);
     }
+
+
