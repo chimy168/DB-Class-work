@@ -1,12 +1,10 @@
 package co.istad.jdbc.config;
-
-
-
-import co.istad.jdbc.dao.ProDao;
+import co.istad.jdbc.dao.ProductDao;
 import co.istad.jdbc.model.Product;
 import co.istad.jdbc.util.InputUtil;
+import co.istad.jdbc.view.ViewUtil;
 
-import javax.swing.text.View;
+
 import java.sql.Connection;
 import java.util.List;
 import java.util.Scanner;
@@ -15,16 +13,16 @@ public class Main {
     public static void main(String[] args) {
         Scanner cin=new Scanner(System.in);
         DbConfig.init();
-        Connection conn = DbConfig.getConn();
+        Connection conn = DbConfig.getInstance();
 //        System.out.println(conn);
         do {
-            View.printAppMenu();
-            int menu= InputUtil.readInt("Enter your option: ");
+            ViewUtil.printAppMenu();
+            int menu= InputUtil.inputInt("option : ");
             switch (menu){
                 case 1-> {
                     System.out.println("List Items");
-                    List<Product> itemsList=new Product().findAll();
-                    View.table(itemsList);
+                    List<Product> itemsList=new ProductDao().findAll();
+                    ViewUtil.table(itemsList);
                 }
                 case 2-> System.out.println("Add Item");
                 case 3-> System.out.println("Update Item");
